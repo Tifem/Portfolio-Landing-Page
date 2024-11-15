@@ -1,7 +1,7 @@
-import React from 'react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import React from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const HeroSection = () => {
+const Hero = () => {
   return (
     <div className="hero">
       <h1>
@@ -18,11 +18,11 @@ const HeroSection = () => {
 
       <div className="connect">
         <span>resume</span>
-        <FaGithub className='git' />
-        <FaLinkedin className='link' />
+        <FaGithub className="git" />
+        <FaLinkedin className="link" />
       </div>
     </div>
   );
-}
+};
 
-export default HeroSection
+export default Hero;
