@@ -1,8 +1,9 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./components/About"
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -13,6 +14,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />\{" "}
         </Routes>
+
+        <Footer/>
     </div>
   );
 };

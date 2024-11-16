@@ -2,8 +2,12 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer Page</div>
-  )
+    <div className="footer">
+      <marquee behavior="" direction="">
+        Designed by Tife Janet &copy; 2024
+      </marquee>
+    </div>
+  );
 }
 
 export default Footer

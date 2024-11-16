@@ -133,6 +133,7 @@ header{
     border-radius: 6px;
     padding: 1rem;
     max-width:320px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 20px -10px;
 }
 
 .card h2{
@@ -141,8 +142,8 @@ header{
 
 .tool{
     display: flex;
+    align-items: center;
     gap: 1rem;
-
 }
 
 .users{
@@ -156,11 +157,12 @@ header{
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    text-align: center;
 }
 
 .git-card{
     display: flex;
-    gap: 1.25rem;
+    gap: 2rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -170,4 +172,23 @@ header{
     padding:20px  30px;
     border: 1px solid var(--text);
     border-radius: 6px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+
+.followers, .github-link{
+    margin-left: 8px;
+    color: var(--navbg);
+    font-size: 1.25rem;
+}
+
+.username{
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.footer{
+    padding-top: 1.5rem;
 }
