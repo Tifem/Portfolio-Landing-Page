@@ -4,19 +4,22 @@ import About from "./components/About"
 import Navbar from "./components/Navbar";
 import Home from "./components/home/Home";
 import Footer from "./components/Footer";
+import ThemeContext from "./context/ThemeContext";
 
 
 const App = () => {
   return (
-    <div>
+    <ThemeContext>
+      <div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />\{" "}
+          <Route path="/about" element={<About />} />{" "}
         </Routes>
 
-        <Footer/>
-    </div>
+        <Footer />
+      </div>
+    </ThemeContext>
   );
 };
 

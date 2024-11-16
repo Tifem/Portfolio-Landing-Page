@@ -19,12 +19,13 @@ ul,li,ol{
 }
 
 
-.dark{
+body.dark{
     --text: #caf0f8;
     --navbg: #03045e;
-    --bodybg: #0077b6;
-
+    --bodybg: #0077b6; 
 }
+
+
 
 body{
     background-color: var(--bodybg);
@@ -41,6 +42,8 @@ header{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     color: var(--text);
     gap: 2rem;
+    width: 100%;
+
     
 }
 /* navbar */
@@ -48,6 +51,7 @@ header{
 .navbar{
     display: flex;
     align-items: center;
+    /* justify-content: center; */
     gap: 1.25rem;
 }
 
@@ -57,6 +61,7 @@ header{
 
 .moon{
     rotate: 180deg;
+    cursor: pointer;
 }
 
 /* hero section */

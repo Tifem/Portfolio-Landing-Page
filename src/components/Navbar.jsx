@@ -2,8 +2,11 @@ import React from 'react'
 import { FaMoon } from 'react-icons/fa';
 import { MdLightMode } from 'react-icons/md';
 import { NavLink } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
+
+  const {theme, toggleButton} = useTheme();
   return (
     <header>
       <div>
@@ -15,11 +18,14 @@ const Navbar = () => {
         <NavLink to="/projects">Projects</NavLink>
         <NavLink to="/skills">Skills</NavLink>
         <NavLink to="/contact">Contact</NavLink>
-        <FaMoon className="moon" />
-          {/* <MdLightMode /> */}
+        <button onClick={toggleButton}>
+          {theme === "light" ? <FaMoon className="moon" /> : <MdLightMode />}
+        </button>
+
+        {/* <p>Mode: {theme}</p> */}
       </div>
     </header>
   );
 }
 
-export default Navbar
+export default Navbar;
