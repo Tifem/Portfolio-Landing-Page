@@ -19,12 +19,10 @@ ul,li,ol{
 }
 
 
-
 .dark{
     --text: #caf0f8;
     --navbg: #03045e;
     --bodybg: #0077b6;
-
 
 }
 
@@ -110,4 +108,66 @@ header{
 .link, .git{
     font-size: 25px;
     color: var(--text);
+}
+
+/* Projects */
+.project{
+    padding: 3rem 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title{
+    text-align: center;
+    padding-top: 2.5rem;
+}
+
+.card{
+    flex-grow: 1;
+    gap: 1.5rem;
+    background-color: white;
+    border-radius: 6px;
+    padding: 1rem;
+    max-width:320px;
+}
+
+.card h2{
+    font-size: 21px;
+}
+
+.tool{
+    display: flex;
+    gap: 1rem;
+
+}
+
+.users{
+    height: 120px;
+    border-radius: 50%;
+}
+
+.github{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.git-card{
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-profile{
+    padding:20px  30px;
+    border: 1px solid var(--text);
+    border-radius: 6px;
 }
