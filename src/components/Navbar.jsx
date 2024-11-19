@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavLink to="/skills">Skills</NavLink>
         <NavLink to="/contact">Contact</NavLink>
         <button onClick={toggleButton}>
-          {theme === "light" ? <FaMoon className="moon" /> : <MdLightMode />}
+          {theme === "light" ? <FaMoon className="moon" /> : <MdLightMode className='sun' />}
         </button>
 
         {/* <p>Mode: {theme}</p> */}

@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { FaGithub, FaUsers } from 'react-icons/fa';
+import React, { useEffect, useRef, useState } from "react";
+import { FaGithub, FaUsers } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-
 const GitHubProfile = () => {
-
   useEffect(() => {
     AOS.init({
       once: true,
@@ -13,35 +11,116 @@ const GitHubProfile = () => {
     AOS.refresh();
   }, []);
 
+  const mockUsers = [
+    {
+      id: 1,
+      login: "freed",
+      avatar_url: "John Doe",
+      followers_url: 1000,
+      html_url: "https://example.com",
+    },
+    {
+      id: 2,
+      login: "janedoe",
+      avatar_url: "Jane Doe",
+      followers_url: 500,
+      html_url: "https://example.com",
+    },
+    {
+      id: 3,
+      login: "daviddoe2",
+      avatar_url: "John Doe 2",
+      followers_url: 2000,
+      html_url: "https://example.com",
+    },
+    {
+      id: 4,
+      login: "uche",
+      avatar_url: "Jane Doe 2",
+      followers_url: 1500,
+      html_url: "https://example.com",
+
+    },
+    {
+      id: 5,
+      login: "iyke",
+      avatar_url: "John Doe 3",
+      followers_url: 2500,
+      html_url: "https://example.com",
+    
+    }
+  ];
   const [user, setUser] = useState([]);
+  const searchRef = useRef();
+
+  // useEffect(() => {
+  //   fetch("https://api.github.com/users")
+  //   .then((response) => response.json())
+  //   .then((data) => setUser(data))
+  // }, []);
+
   useEffect(() => {
-    fetch("https://api.github.com/users")
-    .then((response) => response.json())
-    .then((data) => setUser(data))
+    const fetchData = async () => {
+       await fetch("https://api.github.com/users", {mode:"cors"}).then((response) => {
+        if(response.status == 403){
+          setUser(mockUsers)
+          throw new Error('api not working');
+        }
+        
+        console.log(response.status)
+        return response.json();
+       }).then((data) =>{
+        setUser(data);
+        console.log(data)
+       })
+       
+    };
+    fetchData();
   }, []);
+
+  const handleSearch = () => {
+    const searchValue = searchRef.current.value.toLowerCase();
+    const originalCopy = user.slice(0)
+    const filtered = user.filter((item) =>
+      item.login.toLowerCase().includes(searchValue)
+    );
+    if(searchValue !== ""){
+      setUser(filtered)
+    }else{
+      setUser(originalCopy)
+    }
+    console.log(originalCopy)
+  };
+
   return (
     <div className="github">
       <h1 data-aos="fade-left" data-aos-duration="1000" data-aos-offset="200">
         Github Profiles
       </h1>
+      <input
+        type="search"
+        placeholder="Search by name"
+        className="search"
+        ref={searchRef}
+        onChange={handleSearch}
+      />
       <ul className="git-card">
-        {user.slice(0, 5).map((item) => {
-          return (
+        {user.length > 0 &&
+          user.slice(0, 5).map((item) => (
             <li key={item.id} className="card-profile">
               <img src={item.avatar_url} alt={item.login} className="users" />
               <p className="username">{item.login}</p>
-                <a href={item.followers_url} className='followers'>
-                  <FaUsers />
-                </a>
-                <a href={item.html_url} className='github-link'>
-                  <FaGithub />
-                </a>
+              <a href={item.followers_url} className="followers">
+                <FaUsers />
+              </a>
+              <a href={item.html_url} className="github-link">
+                <FaGithub />
+              </a>
             </li>
-          );
-        })}
+          ))}
       </ul>
     </div>
   );
-}
+};
 
-export default GitHubProfile
+export default GitHubProfile;

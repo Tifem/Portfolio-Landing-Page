@@ -9,15 +9,15 @@ const Projects = () => {
     <>
       <h1 className='title'>Projects</h1>
       <div className="project">
-        {projects.map((item) => {
+        {projects.map((item,index) => {
           return (
-            <div className="card">
+            <div className="card" key={index}>
               <h2>{item.name}</h2>
               <p>{item.description}</p>
 
               <ul className="tool">
-                {item.tools.map((tool) => {
-                  return <li>{tool}</li>;
+                {item.tools.map((tool,indexTool) => {
+                  return <li key={indexTool}>{tool}</li>;
                 })}
               </ul>
 
