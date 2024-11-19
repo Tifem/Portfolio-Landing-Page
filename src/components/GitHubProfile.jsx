@@ -51,6 +51,7 @@ const GitHubProfile = () => {
     }
   ];
   const [user, setUser] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   const searchRef = useRef();
 
   // useEffect(() => {
@@ -64,6 +65,7 @@ const GitHubProfile = () => {
        await fetch("https://api.github.com/users", {mode:"cors"}).then((response) => {
         if(response.status == 403){
           setUser(mockUsers)
+          setFilterData(mockUsers)
           throw new Error('api not working');
         }
         
@@ -71,7 +73,10 @@ const GitHubProfile = () => {
         return response.json();
        }).then((data) =>{
         setUser(data);
+        setFilterData(data);
         console.log(data)
+       }).catch((err) =>{
+        console.log(err)
        })
        
     };
@@ -80,16 +85,14 @@ const GitHubProfile = () => {
 
   const handleSearch = () => {
     const searchValue = searchRef.current.value.toLowerCase();
-    const originalCopy = user.slice(0)
     const filtered = user.filter((item) =>
       item.login.toLowerCase().includes(searchValue)
     );
     if(searchValue !== ""){
       setUser(filtered)
     }else{
-      setUser(originalCopy)
+      setUser(filterData)
     }
-    console.log(originalCopy)
   };
 
   return (
