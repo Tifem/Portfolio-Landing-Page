@@ -8,7 +8,7 @@ const Projects = () => {
   return (
     <>
       <h1 className='title'>Projects</h1>
-      <div className="project">
+      <div className="project" id='project'>
         {projects.map((item,index) => {
           return (
             <div className="card" key={index}>

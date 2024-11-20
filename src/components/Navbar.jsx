@@ -14,15 +14,14 @@ const Navbar = () => {
       </div>
       <div className="navbar">
         <NavLink to="/">Home</NavLink>
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/projects">Projects</NavLink>
-        <NavLink to="/skills">Skills</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/#about">About</NavLink>
+        <a href="#project">Projects</a>
+        {/* <NavLink to="projects">Projects</NavLink> */}
+        {/* <NavLink to="/skills">Skills</NavLink> */}
+        {/* <NavLink to="/contact">Contact</NavLink> */}
         <button onClick={toggleButton}>
           {theme === "light" ? <FaMoon className="moon" /> : <MdLightMode className='sun' />}
         </button>
-
-        {/* <p>Mode: {theme}</p> */}
       </div>
     </header>
   );
