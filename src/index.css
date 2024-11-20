@@ -18,6 +18,9 @@ ul,li,ol{
     list-style: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 body.dark{
     --text: #caf0f8;
